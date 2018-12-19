@@ -1,31 +1,38 @@
-node {
-    stage("Checkout") {
-        echo 'Checkout stage'
-    }
-
-    stage("Verify Packages") {
-        echo 'Verify stage'
-    }
-
-    stage("Build") {
-        when {
-            branch "master"
+pipeline {
+    agent any
+    stages {
+        stage("Checkout") {
+            steps {echo 'Checkout stage'}
         }
-        steps {
-            echo 'Build stage'
-        }
-    }
 
-    stage("Test") {
-        when {
-            branch "develop"
+        stage("Verify Packages") {
+            steps {
+                echo 'Verify stage'
+            }
         }
-        steps {
-            echo 'Test stage'
-        }
-    }
 
-    stage("Archive") {
-        echo 'Archive stage'
+        stage("Build") {
+            when {
+                branch "master"
+            }
+            steps {
+                echo 'Build stage'
+            }
+        }
+
+        stage("Test") {
+            when {
+                branch "develop"
+            }
+            steps {
+                echo 'Test stage'
+            }
+        }
+
+        stage("Archive") {
+            steps {
+                echo 'Archive stage'
+            }
+        }
     }
 }
