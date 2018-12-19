@@ -31,6 +31,8 @@ pipeline {
 
         stage("Archive") {
             steps {
+                sh 'pwd'
+                sh 'ls -lh'
                 sh 'cat ./Jenkisfile'
                 echo 'Archive stage'
 
