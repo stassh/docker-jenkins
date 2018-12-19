@@ -31,7 +31,7 @@ pipeline {
 
         stage("Archive") {
             steps {
-                cat ./Jenkisfile
+                sh 'cat ./Jenkisfile'
                 echo 'Archive stage'
 
             }
