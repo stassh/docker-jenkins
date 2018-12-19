@@ -12,18 +12,18 @@ pipeline {
         }
 
         stage("Build") {
-            // when {
-            //     branch "master"
-            // }
+            when {
+                branch "master"
+            }
             steps {
                 echo 'Build stage'
             }
         }
 
         stage("Test") {
-            // when {
-            //    branch "develop"
-            //}
+            when {
+                branch "develop"
+            }
             steps {
                 echo 'Test stage'
             }
@@ -31,7 +31,9 @@ pipeline {
 
         stage("Archive") {
             steps {
+                cat ./Jenkisfile
                 echo 'Archive stage'
+
             }
         }
     }
