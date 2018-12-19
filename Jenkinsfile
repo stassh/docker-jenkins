@@ -8,7 +8,21 @@ node {
     }
 
     stage("Build") {
-        echo 'Build stage'
+        when {
+            branch "master"
+        }
+        steps {
+            echo 'Build stage'
+        }
+    }
+
+    stage("Test") {
+        when {
+            branch "develop"
+        }
+        steps {
+            echo 'Test stage'
+        }
     }
 
     stage("Archive") {
