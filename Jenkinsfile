@@ -13,7 +13,7 @@ pipeline {
 
         stage("Build") {
             when {
-                branch "master"
+                branch 'master'
             }
             steps {
                 echo 'Build stage'
@@ -22,7 +22,7 @@ pipeline {
 
         stage("Test") {
             when {
-                branch "develop"
+                branch 'develop'
             }
             steps {
                 echo 'Test stage'
@@ -33,9 +33,8 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'ls -lh'
-                sh 'cat ./Jenkisfile'
+                sh 'cat ./Jenkinsfile'
                 echo 'Archive stage'
-
             }
         }
     }
